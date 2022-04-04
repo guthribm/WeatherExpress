@@ -1,0 +1,47 @@
+<%- include('head') -%> <%- include('header') -%>
+<div class="today-container">
+  <div class="results-top">
+    <div class="results-top-left">
+      <h1 class="results-city"><%= city %></h1>
+      <% %>
+      <p class="results-date"><%= date %></p>
+    </div>
+    <div class="results-top-right">
+      <p class="extras">
+        clouds <span class="green-color"><%= data.clouds.all %>%</span>
+      </p>
+      <p class="extras">
+        rain
+        <span class="green-color"><%= Math.round(hourlyArray[0].pop) %>%</span>🌧
+      </p>
+    </div>
+  </div>
+
+  <div class="results-details">
+    <div class="res-big-right">
+      <img
+        class="results-img"
+        src="http://openweathermap.org/img/wn/<%= currentIcon %>@2x.png"
+        alt="icon for weather"
+      />
+      <p class="results-desc"><%= currentDesc %></p>
+    </div>
+
+    <div class="res-big-left">
+      <p class="results-temp"><%= Math.round(currentTemp) %> F</p>
+      <p class="results-feels-like">
+        feels like <span class="green-color"><%= Math.round(feels) %> F</span>
+      </p>
+    </div>
+  </div>
+
+  <a class="extended-btn btn" href="/extended" class="extended"
+    >see extended forecast</a
+  >
+</div>
+<%- include('hourly', {getDay: getDay, dateOptions: dateOptions,hourlyArray:
+hourlyArray}) -%>
+<p class="coord">
+  latitude: <%= LAT.toFixed(2) %>, longitude: <%= LONG.toFixed(2) %>
+</p>
+<%- include('footer') -%>

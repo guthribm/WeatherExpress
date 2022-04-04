@@ -1,0 +1,26 @@
+<div class="hourly-container">
+  <h2 id="hourly-title">HOURLY WEATHER</h2>
+  <% for (let item of hourlyArray){ %>
+  <div class="hourly-output">
+    <div class="hourly-time-container">
+      <p class="hourly-time">
+        <%= getDay(item.dt, dateOptions.singleDayOptions) %>
+      </p>
+      <p class="hourly-time green-color">
+        <%= getDay(item.dt, dateOptions.hourlyOptions) %>
+      </p>
+    </div>
+    <div class="hourly-readout-container">
+      <p class="hourly-temp"><%= Math.round(item.temp) %>F</p>
+      <p class="hourly-desc"><%= item.weather[0].description %></p>
+      <img
+        class="hourly-img"
+        src="http://openweathermap.org/img/wn/<%= item.weather[0].icon %>@2x.png"
+        alt="icon for weather"
+      />
+      <p class="hourly-rain"><%= Math.round(item.pop * 100) %>% 🌧</p>
+    </div>
+  </div>
+
+  <% } %>
+</div>

@@ -1,0 +1,18 @@
+<%- include('head') -%><%- include('header') -%>
+<div class="input-container">
+  <h1 id="title">
+    <span id="weather">Weather</span><span id="my">Express</span
+    ><span id="js">(.js)</span>
+  </h1>
+  <form action="/" method="post">
+    <label id="input-label" for="cityInput">Enter Zip Code</label>
+    <input type="number" id="cityInput" name="cityName" autocomplete="off" />
+    <button class="btn" type="submit">Get Weather</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("cityInput").focus();
+</script>
+
+<%- include('footer') -%>

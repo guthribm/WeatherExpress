@@ -1,0 +1,148 @@
+<%- include('head') -%> <%- include('header') -%>
+<div class="about-container">
+  <h1>
+    About <span id="weather">Weather</span><span id="my">Express</span
+    ><span id="js">(.js)</span>
+  </h1>
+  <h2>Hello and welcome! 👋</h2>
+  <p>
+    Thanks for visiting this about page and I hope you have enjoyed my app! I
+    created this project while I was brushing up on my backend skills with
+    NodeJS and Express.
+  </p>
+  <p>Sometimes I like to check it before I get dressed for the day.</p>
+  <figure>
+    <img
+      class="scout-picture"
+      src="/scout-snow.jpg"
+      alt="picture of scout in snow with jacket on"
+    />
+    <figcaption>I should have worn my mittens..</figcaption>
+  </figure>
+
+  <p>
+    This is the first project I have completed from scratch using
+    <a class="link" href="https://nodejs.org/en/">NodeJS</a>,
+    <a class="link" href="https://expressjs.com/">ExpressJS</a> and
+    <a class="link" href="https://ejs.co/">EJS</a> templating on the backend. It
+    uses the free openweathermap.org API to get the
+    <a class="link" href="https://openweathermap.org/current"
+      >current weather</a
+    >
+    via a US zip code. The GET request then uses the response data to gather the
+    longitude and latitude of the city (they are printed at the bottom of the
+    results pages).
+  </p>
+  <figure>
+    <a
+      href="https://openweathermap.org/api"
+      target="_blank"
+      rel="noopener noreferrer"
+      ><img
+        id="owapi-screen"
+        src="/openweatherscreen.jpg"
+        alt="open weather api screenshot"
+        width="900"
+    /></a>
+  </figure>
+  <figcaption>
+    Openweather.org offers multiple free API calls to fetch data with.
+  </figcaption>
+  <p>
+    That longitude and latitude are then used for a more advanced
+    <a
+      class="link"
+      href="https://openweathermap.org/api/one-call-api"
+      target="_blank"
+      rel="noopener noreferrer"
+      >ONE CALL</a
+    >
+    API call. This response holds a large amount of information including:
+  </p>
+  <ul>
+    <li>hourly and minutely data</li>
+    <li>temperatures</li>
+    <li>wind</li>
+    <li>rainfall</li>
+    <li>cloud cover</li>
+    <li>sunrise and sunset</li>
+    <li>weather alerts</li>
+    <li>and more...</li>
+  </ul>
+  <p>
+    After we have the data, we can then pass it to different template 'views'
+    using EJS. This process has it's pros (it saves time using templates and
+    variables like they are components and props in React) and cons (you cannot
+    access the DOM elements or events directly since the 'views' don't get
+    rendered on the server, but on the browser).
+  </p>
+  <figure>
+    <img
+      class="scout-picture"
+      src="/scout-hat.jpg"
+      alt="picture of scout with hat on"
+    />
+    <figcaption>Today is definitely going to be hat weather.</figcaption>
+  </figure>
+  <p>
+    Overall, it was great practice using EJS templating engine and, as always,
+    the
+    <a
+      class="link"
+      href="https://openweathermap.org/api"
+      target="_blank"
+      rel="noopener noreferrer"
+      >openweathermap.org</a
+    >
+    api is an amazing and powerful free tool and I would recommend any new
+    developer to check it out.
+  </p>
+
+  <p>
+    If you would like to see some more of my other projects or just want to
+    connect and chat, I have several links below that you can check out!
+  </p>
+</div>
+<div class="social-container">
+  <div class="social-link">
+    <p class="social-label">Email:</p>
+    <a
+      class="s-link"
+      href="mailto:guthribm@gmail.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      >guthribm@gmail.com</a
+    >
+  </div>
+  <div class="social-link">
+    <p class="social-label">Portfolio Site:</p>
+    <a
+      class="s-link"
+      href="https://guthribm.github.io/cv/"
+      target="_blank"
+      rel="noopener noreferrer"
+      >https://guthribm.github.io/cv/</a
+    >
+  </div>
+  <div class="social-link">
+    <p class="social-label">LinkedIn:</p>
+    <a
+      class="s-link"
+      href="https://www.linkedin.com/in/guthribm/"
+      target="_blank"
+      rel="noopener noreferrer"
+      >https://www.linkedin.com/in/guthribm/</a
+    >
+  </div>
+  <div class="social-link">
+    <p class="social-label">GitHub:</p>
+    <a
+      class="s-link"
+      href="https://github.com/guthribm"
+      target="_blank"
+      rel="noopener noreferrer"
+      >https://github.com/guthribm</a
+    >
+  </div>
+</div>
+<%- include('footer') -%>

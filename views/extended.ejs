@@ -1,0 +1,59 @@
+<%- include('head') -%><%- include('header') -%>
+<div class="today-container">
+  <div class="intro-title-container">
+    <p class="intro-city"><%= city %></p>  
+    <p class="intro-date">TODAY <em class="green-color"><%= gDay(currentData.current.dt, dateOptions.numericalFullOptions) %></em></p>    
+  </div>
+  
+  
+    <p class="intro-temp"><%= Math.round(currentData.current.temp) %>F </p>    
+    <p class="intro-feels">Feels like <span class="green-color"><%=Math.round(currentData.current.feels_like) %>F</span></p>
+        
+  <img class="intro-img"
+    src="http://openweathermap.org/img/wn/<%= currentData.current.weather[0].icon %>@2x.png"
+    alt="icon for weather"
+  /><p class="intro-desc"><%=currentData.current.weather[0].description.toUpperCase() %>
+  </p>
+  <div class="intro-temps-container">          
+    <p class="ex-temps">HI <span class="daily-temp high"><%= Math.round(currentData.daily[0].temp.max) %> </span></p>
+    <p class="ex-temps">LOW <span class="daily-temp low"><%= Math.round(currentData.daily[0].temp.min) %> </span></p>
+  </div>
+  <div class="intro-extras">
+    <p class="intro">WIND <span class="green-color"><%=Math.round(currentData.current.wind_speed) %>mph</span></p> 
+    <p class="intro">CLOUDS <span class="green-color"><%= dailyArray[0].clouds %>%</span></p>
+    <p class="intro-rain-percent intro">CHANCE OF RAIN <span class="green-color"><%= Math.round(dailyArray[0].pop * 100) %>%</span></p>      
+  </div>
+  
+  
+</div>
+
+<div id="extended-container">
+  <% for (let i of dailyArray){ %>
+    <div class="daily-container">
+        <div class="ex-numbers-container">
+          <h3 class="ex-day"><%= gDay(i.dt, dateOptions.singleDayOptions) %></h3>
+          <h4 class="ex-date"><%= gDay(i.dt, dateOptions.numericalFullOptions) %></h4>
+          <div class="ex-temps-container">          
+            <p class="ex-temps">HI <span class="daily-temp high"><%= Math.round(i.temp.max) %> </span></p>
+            <p class="ex-temps">LOW <span class="daily-temp low"><%= Math.round(i.temp.min) %> </span></p>
+          </div>
+        </div>    
+        
+        <div class="ex-desc-container">          
+          <img
+          class="ex-icon-img" src="http://openweathermap.org/img/wn/<%= i.weather[0].icon %>@2x.png" alt="icon for weather"/>
+          <p class="ex-desc"><%= i.weather[0].description %> </p>
+          <p class="ex-rain-percent">🌧 <%= Math.round(i.pop * 100) %>%</p>
+        </div>
+        
+      
+      
+    </div>
+     
+
+
+  <%} %> 
+  </div>
+  <p>lat: <%= LAT %> lon: <%= LONG %> </p>
+</div>
+<%- include('footer') -%>
